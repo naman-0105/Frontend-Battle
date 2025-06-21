@@ -1,0 +1,102 @@
+/* Stacked Cards Animation Styles */
+
+/* Main stacked cards container */
+.stacked-card {
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform-origin: center center;
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.stacked-card:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.stacked-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initial stacked positioning with slight rotations */
+.card-1 {
+  transform: translate(0, 0) rotate(2deg);
+  z-index: 40;
+}
+
+.card-2 {
+  transform: translate(10px, 5px) rotate(-1deg);
+  z-index: 30;
+}
+
+.card-3 {
+  transform: translate(20px, 10px) rotate(1deg);
+  z-index: 20;
+}
+
+.card-4 {
+  transform: translate(30px, 15px) rotate(-2deg);
+  z-index: 10;
+}
+
+/* Horizontal row target area */
+.horizontal-cards-target {
+  min-height: 400px;
+  position: relative;
+}
+
+/* Card content overlay */
+.stacked-card .content-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.stacked-card:hover .content-overlay {
+  transform: translateY(0);
+}
+
+/* Media queries for responsive behavior */
+@media (max-width: 1280px) {
+  .stacked-card {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stacked-card {
+    width: 180px;
+    height: 250px;
+  }
+  
+  .card-2 {
+    transform: translate(8px, 4px) rotate(-1deg);
+  }
+  
+  .card-3 {
+    transform: translate(16px, 8px) rotate(1deg);
+  }
+  
+  .card-4 {
+    transform: translate(24px, 12px) rotate(-2deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .stacked-card {
+    width: 150px;
+    height: 220px;
+  }
+}
